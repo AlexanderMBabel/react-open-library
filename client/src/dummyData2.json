@@ -1,0 +1,466 @@
+{
+    "ISBN:9780439358071": {
+        "publishers": [{
+            "name": "Scholastic"
+        }],
+        "pagination": "870p.",
+        "identifiers": {
+            "amazon.co.uk_asin": ["0439358078"],
+            "alibris_id": ["9780439358071"],
+            "openlibrary": ["OL24330394M"],
+            "isbn_13": ["9780439358071"],
+            "isbn_10": ["0439358078"],
+            "oclc": ["56098238", "993116990"],
+            "goodreads": ["25734768"]
+        },
+        "table_of_contents": [{
+            "title": "Dudley demented --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "A peck of owls --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The advance guard --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Number twelve, Grimmauld Place --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The Order of the Phoenix --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The noble and most ancient house of Black --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The Ministry of magic --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The hearing --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The woes of Mrs. Weasley --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Luna Lovegood --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The sorting hat's new song --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Professor Umbridge --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Detention with Dolores --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Percy and Padfoot --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The Hogwarts high inquisitor --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "In the hog's head --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Educational decree number twenty-four --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Dumbledore's army --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The lion and the serpent --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Hagrid's tale --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The eye of the snake --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "St. Mungo's hospital for magical maladies and injuries --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Christmas on the closed ward --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Occlumency --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The Beetle at bay --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Seen and unforeseen --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The centaur and the sneak --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Snape's worst memory --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Career advice --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Grawp --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "O.W.L.s --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Out of the fire --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Fight and flight --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The Department of mysteries --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "Beyond the veil --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The only one he ever feared --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The lost prophecy --",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }, {
+            "title": "The second war begins.",
+            "label": "",
+            "pagenum": "",
+            "level": 0
+        }],
+        "links": [{
+            "url": "https://www.jkrowling.com/book/harry-potter-order-phoenix/",
+            "title": "Harry Potter and the Order of the Phoenix - J. K. Rowling (jkrowling.com)"
+        }, {
+            "url": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Order_of_the_Phoenix",
+            "title": "Harry Potter and the Order of the Phoenix - Wikipedia"
+        }],
+        "title": "Harry Potter and the Order of the Phoenix",
+        "url": "https://openlibrary.org/books/OL24330394M/Harry_Potter_and_the_Order_of_the_Phoenix",
+        "notes": "First Scholastic trade paperback printing.",
+        "number_of_pages": 870,
+        "cover": {
+            "small": "https://covers.openlibrary.org/b/id/8253767-S.jpg",
+            "large": "https://covers.openlibrary.org/b/id/8253767-L.jpg",
+            "medium": "https://covers.openlibrary.org/b/id/8253767-M.jpg"
+        },
+        "subject_places": [{
+            "url": "https://openlibrary.org/subjects/place:england",
+            "name": "England"
+        }, {
+            "url": "https://openlibrary.org/subjects/place:hogwarts_schools_of_witchcraft_and_wizardry",
+            "name": "Hogwarts Schools of Witchcraft and Wizardry"
+        }, {
+            "url": "https://openlibrary.org/subjects/place:grimmauld_place",
+            "name": "Grimmauld Place"
+        }, {
+            "url": "https://openlibrary.org/subjects/place:privet_drive",
+            "name": "Privet Drive"
+        }],
+        "subjects": [{
+            "url": "https://openlibrary.org/subjects/children's_books/ages_9-12_fiction",
+            "name": "Children's Books/Ages 9-12 Fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/witches_and_warlocks",
+            "name": "Witches and warlocks"
+        }, {
+            "url": "https://openlibrary.org/subjects/wizards",
+            "name": "wizards"
+        }, {
+            "url": "https://openlibrary.org/subjects/juvenile_audience",
+            "name": "Juvenile audience"
+        }, {
+            "url": "https://openlibrary.org/subjects/juvenile_works",
+            "name": "Juvenile works"
+        }, {
+            "url": "https://openlibrary.org/subjects/magic",
+            "name": "Magic"
+        }, {
+            "url": "https://openlibrary.org/subjects/fantasy_fiction",
+            "name": "Fantasy fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/juvenile_fiction",
+            "name": "Juvenile fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/in_library",
+            "name": "In library"
+        }, {
+            "url": "https://openlibrary.org/subjects/fiction",
+            "name": "Fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/fantasy",
+            "name": "Fantasy"
+        }, {
+            "url": "https://openlibrary.org/subjects/friendship",
+            "name": "Friendship"
+        }, {
+            "url": "https://openlibrary.org/subjects/children's_stories",
+            "name": "Children's stories"
+        }, {
+            "url": "https://openlibrary.org/subjects/juvenile_literature",
+            "name": "Juvenile literature"
+        }, {
+            "url": "https://openlibrary.org/subjects/magia",
+            "name": "Magia"
+        }, {
+            "url": "https://openlibrary.org/subjects/novela_juvenil",
+            "name": "Novela juvenil"
+        }, {
+            "url": "https://openlibrary.org/subjects/traducciones_al_español",
+            "name": "Traducciones al español"
+        }, {
+            "url": "https://openlibrary.org/subjects/escuelas",
+            "name": "Escuelas"
+        }, {
+            "url": "https://openlibrary.org/subjects/novela_inglesa",
+            "name": "Novela inglesa"
+        }, {
+            "url": "https://openlibrary.org/subjects/internet_archive_wishlist",
+            "name": "Internet Archive Wishlist"
+        }, {
+            "url": "https://openlibrary.org/subjects/romans,_nouvelles,_etc._pour_la_jeunesse",
+            "name": "Romans, nouvelles, etc. pour la jeunesse"
+        }, {
+            "url": "https://openlibrary.org/subjects/magiciens",
+            "name": "Magiciens"
+        }, {
+            "url": "https://openlibrary.org/subjects/magic_in_fiction",
+            "name": "Magic in fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/england_in_fiction",
+            "name": "England in fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/schools_in_fiction",
+            "name": "Schools in fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/écoles",
+            "name": "Écoles"
+        }, {
+            "url": "https://openlibrary.org/subjects/schools",
+            "name": "Schools"
+        }, {
+            "url": "https://openlibrary.org/subjects/sorcières",
+            "name": "Sorcières"
+        }, {
+            "url": "https://openlibrary.org/subjects/wizards_in_fiction",
+            "name": "Wizards in fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/translations_from_english",
+            "name": "Translations from English"
+        }, {
+            "url": "https://openlibrary.org/subjects/coming_of_age",
+            "name": "Coming of age"
+        }, {
+            "url": "https://openlibrary.org/subjects/new_york_times_bestseller",
+            "name": "New York Times bestseller"
+        }, {
+            "url": "https://openlibrary.org/subjects/open_library_staff_picks",
+            "name": "Open Library Staff Picks"
+        }, {
+            "url": "https://openlibrary.org/subjects/protected_daisy",
+            "name": "Protected DAISY"
+        }, {
+            "url": "https://openlibrary.org/subjects/popular_print_disabled_books",
+            "name": "Popular Print Disabled Books"
+        }, {
+            "url": "https://openlibrary.org/subjects/accessible_book",
+            "name": "Accessible book"
+        }, {
+            "url": "https://openlibrary.org/subjects/nyt:series_books=2006-09-16",
+            "name": "nyt:series_books=2006-09-16"
+        }, {
+            "url": "https://openlibrary.org/subjects/school_stories",
+            "name": "School stories"
+        }, {
+            "url": "https://openlibrary.org/subjects/family",
+            "name": "Family"
+        }, {
+            "url": "https://openlibrary.org/subjects/orphans_&_foster_homes",
+            "name": "Orphans & Foster Homes"
+        }, {
+            "url": "https://openlibrary.org/subjects/social_themes",
+            "name": "Social Themes"
+        }, {
+            "url": "https://openlibrary.org/subjects/fantasy_&_magic",
+            "name": "Fantasy & Magic"
+        }, {
+            "url": "https://openlibrary.org/subjects/boarding_schools",
+            "name": "Boarding schools"
+        }, {
+            "url": "https://openlibrary.org/subjects/magie",
+            "name": "Magie"
+        }, {
+            "url": "https://openlibrary.org/subjects/{acute}ecoles",
+            "name": "{acute}Ecoles"
+        }, {
+            "url": "https://openlibrary.org/subjects/sorciaeres",
+            "name": "Sorciaeres"
+        }, {
+            "url": "https://openlibrary.org/subjects/roman_pour_la_jeunesse",
+            "name": "Roman pour la jeunesse"
+        }, {
+            "url": "https://openlibrary.org/subjects/romans",
+            "name": "Romans"
+        }, {
+            "url": "https://openlibrary.org/subjects/witches",
+            "name": "Witches"
+        }, {
+            "url": "https://openlibrary.org/subjects/sorciers",
+            "name": "Sorciers"
+        }, {
+            "url": "https://openlibrary.org/subjects/potter,_harry_(personnage_fictif)",
+            "name": "Potter, Harry (Personnage fictif)"
+        }, {
+            "url": "https://openlibrary.org/subjects/hogwarts_school_of_witchcraft_and_wizardry_(imaginary_place)",
+            "name": "Hogwarts School of Witchcraft and Wizardry (Imaginary place)"
+        }, {
+            "url": "https://openlibrary.org/subjects/harry_potter_(fictitious_character)",
+            "name": "Harry Potter (Fictitious character)"
+        }, {
+            "url": "https://openlibrary.org/subjects/potter,_harry_(fictitious_character)",
+            "name": "Potter, Harry (Fictitious character)"
+        }, {
+            "url": "https://openlibrary.org/subjects/english_fantasy_fiction",
+            "name": "English Fantasy fiction"
+        }, {
+            "url": "https://openlibrary.org/subjects/hogwarts_school_of_witchcraft_and_wizardry_(imaginary_organization)",
+            "name": "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)"
+        }, {
+            "url": "https://openlibrary.org/subjects/arabic_language_materials",
+            "name": "Arabic language materials"
+        }, {
+            "url": "https://openlibrary.org/subjects/magos",
+            "name": "Magos"
+        }, {
+            "url": "https://openlibrary.org/subjects/ficción_juvenil",
+            "name": "Ficción juvenil"
+        }, {
+            "url": "https://openlibrary.org/subjects/novela_fantástica",
+            "name": "Novela fantástica"
+        }, {
+            "url": "https://openlibrary.org/subjects/england",
+            "name": "England"
+        }],
+        "subject_people": [{
+            "url": "https://openlibrary.org/subjects/person:harry_potter",
+            "name": "Harry Potter"
+        }, {
+            "url": "https://openlibrary.org/subjects/person:albus_dumbledore",
+            "name": "Albus Dumbledore"
+        }, {
+            "url": "https://openlibrary.org/subjects/person:hagrid",
+            "name": "Hagrid"
+        }, {
+            "url": "https://openlibrary.org/subjects/person:ron_weasley",
+            "name": "Ron Weasley"
+        }, {
+            "url": "https://openlibrary.org/subjects/person:hermione_granger",
+            "name": "Hermione Granger"
+        }, {
+            "url": "https://openlibrary.org/subjects/person:lord_voldemort",
+            "name": "Lord Voldemort"
+        }, {
+            "url": "https://openlibrary.org/subjects/person:severus_snape",
+            "name": "Severus Snape"
+        }, {
+            "url": "https://openlibrary.org/subjects/person:dudley_dursley",
+            "name": "Dudley Dursley"
+        }],
+        "key": "/books/OL24330394M",
+        "authors": [{
+            "url": "https://openlibrary.org/authors/OL23919A/J._K._Rowling",
+            "name": "J. K. Rowling"
+        }],
+        "publish_date": "2004 September",
+        "excerpts": [{
+            "comment": "first sentence",
+            "text": "The hottest day of the summer so far was drawing to a close and a drowsy silence lay over the large, square houses of Privet Drive."
+        }],
+        "publish_places": [{
+            "name": "New York, USA"
+        }],
+        "ebooks": [{
+            "checkedout": true,
+            "formats": {},
+            "preview_url": "https://archive.org/details/harrypottero00rowl",
+            "borrow_url": "https://openlibrary.org/books/OL24330394M/Harry_Potter_and_the_Order_of_the_Phoenix/borrow",
+            "availability": "borrow"
+        }]
+    }
+}
