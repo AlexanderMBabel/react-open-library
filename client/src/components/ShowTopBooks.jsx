@@ -71,7 +71,7 @@ const ShowTopBooks = () => {
       </div>
       <Grid container style={{ margin: 45 }}>
         {bookData.map(book => (
-          <Grid key={book[0]} item xs={12} md={3}>
+          <Grid key={book[0]} item xs={12} sm={6} md={3}>
             <BookCard bookData={book} />
           </Grid>
         ))}

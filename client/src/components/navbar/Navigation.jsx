@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+//components
+import Search from './Search';
+
 //material-ui
 import { makeStyles, fade, createMuiTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,10 +17,9 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import SearchIcon from '@material-ui/icons/SearchTwoTone';
-import InputBase from '@material-ui/core/InputBase';
+
+import CatagoryIcon from '@material-ui/icons/Category';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -90,29 +92,19 @@ const Navigation = () => {
 
   const sideList = () => (
     <div className={classes.list} role='presentation'>
-      <Typography variant='h5' component='h5'>
-        Search Books
-      </Typography>
-      <div className='classes.search'>
-        <div className='classes.seatchIcon'>
-          <SearchIcon />
-        </div>
-        <InputBase
-          placeholder='Search...'
-          inputProps={{ 'aria-label': 'search' }}
-        />
-      </div>
-
+      <Search />
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
+        <Typography variant='caption'>
+          <ListItem>
+            <ListItemText>
+              <ListItemIcon>
+                <CatagoryIcon />
+              </ListItemIcon>
+              Categories
+            </ListItemText>
           </ListItem>
-        ))}
+        </Typography>
       </List>
     </div>
   );
