@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Navigation from './components/navbar/Navigation';
 import ShowTopbooks from './components/ShowTopBooks';
 import SearchBooks from './components/SearchBooks';
+import ShowBook from './components/ShowBook';
+import Login from './components/auth/Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { SearchProvider } from './context';
@@ -24,7 +26,10 @@ function App() {
         </SearchProvider>
         <main>
           <Switch>
+            <Route path='/login' component={Login} />
             <Route exact path='/' component={ShowTopbooks} />
+            {/* <Route exact path='/showbook' component={ShowBook} /> */}
+            <Route path='/showbook/:isbn' component={ShowBook} />
             <SearchProvider value={searchDataObj}>
               <Route exact path='/searchresults' component={SearchBooks} />
             </SearchProvider>

@@ -24,7 +24,7 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
-    maxHeight: 500
+    maxHeight: 550
   },
   media: {
     height: 0,

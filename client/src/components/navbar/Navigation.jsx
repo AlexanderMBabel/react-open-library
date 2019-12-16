@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
+//router
+import { Link } from 'react-router-dom';
+
 //components
 import Search from './Search';
 
 //material-ui
-import { makeStyles, fade, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,6 +20,10 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import CatagoryIcon from '@material-ui/icons/Category';
 
@@ -34,31 +41,7 @@ const useStyles = makeStyles(theme => ({
   fullList: {
     width: 'auto'
   },
-  search: {
-    position: 'relative',
-    display: 'flex',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto'
-    }
-  },
-  searchIcon: {
-    width: theme.spacing(7),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
+
   inputRoot: {
     color: 'inherit'
   },
@@ -69,10 +52,14 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       width: 200
     }
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'white'
   }
 }));
 
-const theme = createMuiTheme({});
+// const theme = createMuiTheme({});
 
 const Navigation = () => {
   const classes = useStyles();
@@ -96,14 +83,27 @@ const Navigation = () => {
       <Divider />
       <List>
         <Typography variant='caption'>
-          <ListItem>
-            <ListItemText>
-              <ListItemIcon>
-                <CatagoryIcon />
-              </ListItemIcon>
-              Categories
-            </ListItemText>
-          </ListItem>
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls='Catagories'
+            >
+              <CatagoryIcon /> <p>Categories</p>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <ListItem>Science fiction</ListItem>
+              <ListItem>History</ListItem>
+              <ListItem>Mystery</ListItem>
+            </ExpansionPanelDetails>
+            <ListItem>
+              <ListItemText>
+                <ListItemIcon>
+                  <CatagoryIcon />
+                </ListItemIcon>
+                Categories
+              </ListItemText>
+            </ListItem>
+          </ExpansionPanel>
         </Typography>
       </List>
     </div>
@@ -121,10 +121,15 @@ const Navigation = () => {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography variant='h6' className={classes.title}>
-            Open Library Browser
+            <Link to='/' className={classes.link}>
+              Open Library Browser{' '}
+            </Link>
           </Typography>
-          <Button color='inherit'>Login</Button>
+          <Link to='/login' className={classes.link}>
+            <Button color='inherit'>Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <SwipeableDrawer
