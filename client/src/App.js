@@ -6,7 +6,10 @@ import ShowTopbooks from './components/ShowTopBooks';
 import SearchBooks from './components/SearchBooks';
 import ShowBook from './components/ShowBook';
 import Login from './components/auth/Login';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Register from './components/auth/Register';
+import Dashboard from './components/Dashboard/Dashboard';
+import { Router, Switch, Route } from 'react-router-dom';
+import history from './history';
 
 import { SearchProvider } from './context';
 import './App.css';
@@ -19,7 +22,7 @@ function App() {
     setSearchData
   };
   return (
-    <Router>
+    <Router history={history}>
       <div className='App'>
         <SearchProvider value={searchDataObj}>
           <Navigation />
@@ -27,6 +30,8 @@ function App() {
         <main>
           <Switch>
             <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/dashboard' component={Dashboard} />
             <Route exact path='/' component={ShowTopbooks} />
             {/* <Route exact path='/showbook' component={ShowBook} /> */}
             <Route path='/showbook/:isbn' component={ShowBook} />
