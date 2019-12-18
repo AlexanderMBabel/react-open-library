@@ -55,8 +55,8 @@ const Search = () => {
       <Typography variant='h5' component='h5' style={{ textAlign: 'center' }}>
         Search Books
       </Typography>
-      <div className='classes.search'>
-        <div className='classes.searchIcon'>
+      <div className={classes.search}>
+        <div className={classes.searchIcon}>
           <SearchIcon />
         </div>
         <InputBase

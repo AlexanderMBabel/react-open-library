@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchContext from '../context';
 import { Typography, List } from '@material-ui/core';
-import BookCard from './BookCard';
+
 import BookSearchResult from './BookSearchResult';
 
 const urlBase = 'http://openlibrary.org/search.json?';

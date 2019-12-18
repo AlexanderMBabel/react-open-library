@@ -15,7 +15,7 @@ const Login = () => {
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr',
-          gridTemplateColumns: '1fr',
+          gridTemplateRows: '1fr',
           alignItems: 'center',
           justifyItems: 'center',
           height: '50rem'

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 //material-ui
 const BookSearchResult = ({ bookData }) => {
-  const preparedData = {};
   console.log(bookData.isbn);
   return (
     <div>
