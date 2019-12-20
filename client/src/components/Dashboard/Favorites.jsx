@@ -10,7 +10,12 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
   container_grid: {
-    display: 'grid'
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
+    gridTemplateRows: 'auto'
+  },
+  add_margin: {
+    margin: 10
   }
 }));
 
@@ -37,9 +42,13 @@ const Favorites = ({ firebase }) => {
   }, [firebase.db, authUser.authUser.uid]);
 
   return (
-    <div>
+    <div className={classes.container_grid}>
       {favoriteArr.map(favorite => (
-        <FavoriteBookCard key={favorite} bookData={favorite} />
+        <FavoriteBookCard
+          className={classes.add_margin}
+          key={favorite}
+          bookData={favorite}
+        />
       ))}
     </div>
   );
