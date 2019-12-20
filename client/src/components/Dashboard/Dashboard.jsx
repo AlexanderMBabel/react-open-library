@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
-//material-ui
+//components
+import Profile from './Profile';
+import Favorites from './Favorites';
 
+//material-ui
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
@@ -83,10 +86,10 @@ const Dashboard = () => {
             <Tab label='lists' {...a11yProps(2)} />
           </Tabs>
           <TabPanel value={tabValue} index={0}>
-            User Profile
+            <Profile />
           </TabPanel>
           <TabPanel value={tabValue} index={1}>
-            favorite books
+            <Favorites />
           </TabPanel>
           <TabPanel value={tabValue} index={2}>
             sharable book lists

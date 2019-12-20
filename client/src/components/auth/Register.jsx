@@ -36,15 +36,25 @@ const RegisterBase = ({ firebase }) => {
   };
   const submitHandler = e => {
     e.preventDefault();
-    const { email, password } = formData;
+    const { userName, email, password } = formData;
     firebase
       .doCreateUserWithEmailAndPassword(email, password)
-      .then(() => {
+      .then(data => {
+        console.log(data.user);
+        firebase.db
+          .collection('users')
+          .doc(data.user.uid)
+          .set({
+            userName,
+            email
+          })
+          .then(() => console.log('added'))
+          .catch(err => console.log(err));
         setFormData(initialFormData);
         history.push('/dashboard');
       })
       .catch(error => {
-        formData({ ...formData, error });
+        setFormData({ ...formData, error });
       });
   };
   return (
@@ -98,7 +108,7 @@ const RegisterBase = ({ firebase }) => {
               <Button onClick={submitHandler}>Register</Button>
             </FormGroup>
 
-            {formData.error && <p>formData.error.message</p>}
+            {formData.error && <p>{formData.error.message}</p>}
           </Paper>
         </Grid>
       </Grid>

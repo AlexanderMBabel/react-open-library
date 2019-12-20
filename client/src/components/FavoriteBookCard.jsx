@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import axios from 'axios';
 
-// ***FireBase***
-import { useAuthContext } from './Sessions/context';
-import { withFirebase } from './Firebase/context';
-
-//  ***material-ui***
+//material-ui
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -13,16 +10,14 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-
 import IconButton from '@material-ui/core/IconButton';
-
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import CommentIcon from '@material-ui/icons/CommentOutlined';
 
 //styles
 const useStyles = makeStyles(theme => ({
@@ -50,56 +45,42 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const BookCard = ({ bookData, firebase }) => {
+const urlFirst = 'https://openlibrary.org/api/books?bibkeys=ISBN:';
+const urlLast = '&jscmd=data&format=json';
+const BookCard = ({ bookData }) => {
   const classes = useStyles();
-  const authUser = useAuthContext();
-  const userId = authUser ? authUser.authUser.uid : '';
+  const [book, setBook] = useState({});
 
-  const objData = bookData[1][`ISBN:${bookData[0]}`];
+  useEffect(() => {
+    axios.get(urlFirst + bookData + urlLast).then(result => {
+      setBook(result.data);
+      console.log(book);
+    });
+    return () => {};
+  }, []);
+
+  const objData = book[`ISBN:${bookData}`];
 
   const bookDataProcessed = {
-    title: objData.title,
-    author: objData.authors ? objData.authors[0].name : 'author not listed',
-    cover: objData.cover.medium,
-    coverTitle: objData.title + 'cover image',
-    contents: objData.table_of_contents,
-    excerpts: objData.excerpts,
-    availability: objData.ebooks
-      ? objData.ebooks[0].availability
-      : 'availibility no listed',
-    preview: objData.ebooks ? objData.ebooks[0].preview_url : '#',
-    borrow: objData.ebooks ? objData.ebooks[0].borrow_url : '#'
+    title: objData && objData.title,
+    author:
+      objData && objData.authors
+        ? objData.authors[0].name
+        : 'author not listed',
+    cover: objData && objData.cover.medium,
+    coverTitle: objData && objData.title + 'cover image',
+    contents: objData && objData.table_of_contents,
+    excerpts: objData && objData.excerpts,
+    availability:
+      objData && objData.ebooks
+        ? objData.ebooks[0].availability
+        : 'availibility no listed',
+    preview: objData && objData.ebooks ? objData.ebooks[0].preview_url : '#',
+    borrow: objData && objData.ebooks ? objData.ebooks[0].borrow_url : '#'
   };
 
-  const addToFav = () => {
-    if (userId !== null) {
-      let favArr = [];
-      console.log(userId);
-      // ***get user favorite array***
-      firebase.db
-        .collection('favorites')
-        .doc(userId)
-        .get()
-        .then(doc => {
-          if (doc.exists) {
-            const favData = doc.data();
-            favArr = favData.favArr;
-            //  ***add books ibsn to fav array***
-            favArr = [...favArr, bookData[0]];
-            //  ***Post to firebase
-            firebase.db
-              .collection('favorites')
-              .doc(userId)
-              .set({ favArr })
-              .then(() => console.log('added', favArr))
-              .catch(err => console.log(err));
-          } else {
-            console.log('no favorites');
-          }
-        })
-        .catch(err => console.log(err));
-    }
-  };
+  const addComment = () => {};
+
   return (
     <div>
       <Card className={classes.card}>
@@ -148,10 +129,13 @@ const BookCard = ({ bookData, firebase }) => {
               </Link>
             </Grid>
           </Grid>
+          <Button>
+            <CommentIcon />
+          </Button>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label='add to favorites' onClick={addToFav}>
-            <FavoriteIcon />
+          <IconButton aria-label='add a comment' onClick={addComment}>
+            <CommentIcon />
           </IconButton>
           <IconButton aria-label='share'>
             <ShareIcon />
@@ -162,4 +146,4 @@ const BookCard = ({ bookData, firebase }) => {
   );
 };
 
-export default withFirebase(BookCard);
+export default BookCard;

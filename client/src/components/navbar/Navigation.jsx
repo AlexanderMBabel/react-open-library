@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 //components
 import Search from './Search';
+import SignOut from '../auth/SignOut';
+
+//firebase
+import AuthContext from '../Sessions/context';
 
 //material-ui
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,7 +28,6 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 import CatagoryIcon from '@material-ui/icons/Category';
 
 const useStyles = makeStyles(theme => ({
@@ -127,9 +130,22 @@ const Navigation = () => {
               Open Library Browser{' '}
             </Link>
           </Typography>
-          <Link to='/login' className={classes.link}>
-            <Button color='inherit'>Login</Button>
-          </Link>
+          <AuthContext.Consumer>
+            {authUser =>
+              authUser ? (
+                <>
+                  <SignOut />
+                  <Link to='/dashboard' className={classes.link}>
+                    <Button color='inherit'>Dashboard</Button>
+                  </Link>
+                </>
+              ) : (
+                <Link to='/login' className={classes.link}>
+                  <Button color='inherit'>Login</Button>
+                </Link>
+              )
+            }
+          </AuthContext.Consumer>
         </Toolbar>
       </AppBar>
       <SwipeableDrawer
