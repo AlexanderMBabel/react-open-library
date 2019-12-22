@@ -8,6 +8,7 @@ import ShowBook from './components/ShowBook';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Dashboard from './components/Dashboard/Dashboard';
+import BooksByCatagory from './components/catagories/BooksByCatagory';
 import PrivateRoute from './components/Routes/PrivateRoute';
 
 //router
@@ -17,13 +18,14 @@ import history from './history';
 //context
 import { SearchProvider } from './context';
 import UserContext from './components/Sessions/context';
-
+import CatagoryContext from './components/catagories/context';
 //firebase
 import { withFirebase } from './components/Firebase/context';
 import './App.css';
 
 function App({ firebase }) {
   const [searchData, setSearchData] = useState({ type: '', value: '' });
+  const [catagoryData, setCatagoryData] = useState('');
   const [authUser, setAuthUser] = useState(null);
 
   useEffect(() => {
@@ -35,6 +37,10 @@ function App({ firebase }) {
   let searchDataObj = {
     searchData,
     setSearchData
+  };
+  let catagoryDataObj = {
+    catagoryData,
+    setCatagoryData
   };
   return (
     <UserContext.Provider value={authUser}>
@@ -54,6 +60,9 @@ function App({ firebase }) {
               <SearchProvider value={searchDataObj}>
                 <Route exact path='/searchresults' component={SearchBooks} />
               </SearchProvider>
+              <CatagoryContext.Provider value={catagoryDataObj}>
+                <Route path='booksByCatagory' component={BooksByCatagory} />
+              </CatagoryContext.Provider>
             </Switch>
           </main>
         </div>

@@ -38,6 +38,17 @@ const searchStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200
+      }
+    }
   }
 }));
 const Search = () => {
@@ -52,20 +63,27 @@ const Search = () => {
 
   return (
     <div>
-      <Typography variant='h5' component='h5' style={{ textAlign: 'center' }}>
+      <Typography
+        variant='subtitle1'
+        component='h5'
+        style={{ textAlign: 'center' }}
+      >
         Search Books
       </Typography>
       <div className={classes.search}>
         <div className={classes.searchIcon}>
           <SearchIcon />
         </div>
-        <InputBase
-          name='value'
-          value={searchObj.searchData.value}
-          onChange={changeHandler}
-          placeholder='Search...'
-          inputProps={{ 'aria-label': 'search' }}
-        />
+        <div>
+          <InputBase
+            className={classes.inputInput}
+            name='value'
+            value={searchObj.searchData.value}
+            onChange={changeHandler}
+            placeholder='Search...'
+            inputProps={{ 'aria-label': 'search' }}
+          />
+        </div>
       </div>
       <NativeSelect
         value={searchObj.searchData.type}

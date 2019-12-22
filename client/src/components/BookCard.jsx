@@ -1,8 +1,6 @@
 import React from 'react';
 
 // ***FireBase***
-import { useAuthContext } from './Sessions/context';
-import { withFirebase } from './Firebase/context';
 
 //  ***material-ui***
 import Card from '@material-ui/core/Card';
@@ -16,13 +14,13 @@ import CardActions from '@material-ui/core/CardActions';
 
 import IconButton from '@material-ui/core/IconButton';
 
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import AddFavorite from './AddFavorite';
 
 //styles
 const useStyles = makeStyles(theme => ({
@@ -50,10 +48,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const BookCard = ({ bookData, firebase }) => {
+const BookCard = ({ bookData }) => {
   const classes = useStyles();
-  const authUser = useAuthContext();
-  const userId = authUser ? authUser.authUser.uid : '';
 
   const objData = bookData[1][`ISBN:${bookData[0]}`];
 
@@ -71,35 +67,35 @@ const BookCard = ({ bookData, firebase }) => {
     borrow: objData.ebooks ? objData.ebooks[0].borrow_url : '#'
   };
 
-  const addToFav = () => {
-    if (userId !== null) {
-      let favArr = [];
-      console.log(userId);
-      // ***get user favorite array***
-      firebase.db
-        .collection('favorites')
-        .doc(userId)
-        .get()
-        .then(doc => {
-          if (doc.exists) {
-            const favData = doc.data();
-            favArr = favData.favArr;
-            //  ***add books ibsn to fav array***
-            favArr = [...favArr, bookData[0]];
-            //  ***Post to firebase
-            firebase.db
-              .collection('favorites')
-              .doc(userId)
-              .set({ favArr })
-              .then(() => console.log('added', favArr))
-              .catch(err => console.log(err));
-          } else {
-            console.log('no favorites');
-          }
-        })
-        .catch(err => console.log(err));
-    }
-  };
+  // const addToFav = () => {
+  //   if (userId !== null) {
+  //     let favArr = [];
+  //     console.log(userId);
+  //     // ***get user favorite array***
+  //     firebase.db
+  //       .collection('favorites')
+  //       .doc(userId)
+  //       .get()
+  //       .then(doc => {
+  //         if (doc.exists) {
+  //           const favData = doc.data();
+  //           favArr = favData.favArr;
+  //           //  ***add books ibsn to fav array***
+  //           favArr = [...favArr, bookData[0]];
+  //           //  ***Post to firebase
+  //           firebase.db
+  //             .collection('favorites')
+  //             .doc(userId)
+  //             .set({ favArr })
+  //             .then(() => console.log('added', favArr))
+  //             .catch(err => console.log(err));
+  //         } else {
+  //           console.log('no favorites');
+  //         }
+  //       })
+  //       .catch(err => console.log(err));
+  //   }
+  // };
   return (
     <div>
       <Card className={classes.card}>
@@ -150,9 +146,10 @@ const BookCard = ({ bookData, firebase }) => {
           </Grid>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label='add to favorites' onClick={addToFav}>
+          {/* <IconButton aria-label='add to favorites' onClick={addToFav}>
             <FavoriteIcon />
-          </IconButton>
+          </IconButton> */}
+          <AddFavorite isbn={bookData[0]} />
           <IconButton aria-label='share'>
             <ShareIcon />
           </IconButton>
@@ -162,4 +159,4 @@ const BookCard = ({ bookData, firebase }) => {
   );
 };
 
-export default withFirebase(BookCard);
+export default BookCard;

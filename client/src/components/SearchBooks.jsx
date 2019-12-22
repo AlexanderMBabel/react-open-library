@@ -14,17 +14,17 @@ const SearchBooks = () => {
   useEffect(() => {
     if (searchInfo.searchData.type === 'author') {
       axios
-        .get(urlBase + 'author=' + searchInfo.searchData.value)
+        .get(urlBase + 'author=' + searchInfo.searchData.value + '&page=1')
         .then(results => setSearchData(results.data))
         .catch(err => console.log(err));
     } else if (searchInfo.searchData.type === 'title') {
       axios
-        .get(urlBase + 'title=' + searchInfo.searchData.value)
+        .get(urlBase + 'title=' + searchInfo.searchData.value + '&page=1')
         .then(results => setSearchData(results.data))
         .catch(err => console.log(err));
     } else {
       axios
-        .get(urlBase + 'q=' + searchInfo.searchData.value)
+        .get(urlBase + 'q=' + searchInfo.searchData.value + '&page=1')
         .then(results => setSearchData(results.data))
         .catch(err => console.log(err));
     }

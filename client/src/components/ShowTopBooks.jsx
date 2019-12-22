@@ -69,19 +69,28 @@ const ShowTopBooks = () => {
           </Typography>
         </Container>
       </div>
-      <Grid container style={{ margin: 45 }}>
-        {bookData.map(book => (
-          <Grid key={book[0]} item xs={12} sm={6} md={3}>
-            <BookCard bookData={book} />
-          </Grid>
-        ))}
-        {/* <Grid item xs={3}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%'
+        }}
+      >
+        <Grid container spacing={5}>
+          {bookData.map(book => (
+            <Grid key={book[0]} item xs={12} sm={6} md={3}>
+              <BookCard bookData={book} />
+            </Grid>
+          ))}
+          {/* <Grid item xs={3}>
           <BookCard bookData={books} />
         </Grid>
         <Grid item xs={3}>
           <BookCard bookData={books2} />
         </Grid> */}
-      </Grid>
+        </Grid>
+      </div>
     </div>
   );
 };

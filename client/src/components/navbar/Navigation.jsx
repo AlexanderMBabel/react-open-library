@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 //components
 import Search from './Search';
 import SignOut from '../auth/SignOut';
+import Catagories from './Catagories';
 
 //firebase
 import AuthContext from '../Sessions/context';
@@ -21,14 +22,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import CatagoryIcon from '@material-ui/icons/Category';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,20 +35,10 @@ const useStyles = makeStyles(theme => ({
   },
   list: { width: 250 },
   fullList: {
-    width: 'auto'
+    width: 'auto',
+    padding: '5px'
   },
 
-  inputRoot: {
-    color: 'inherit'
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200
-    }
-  },
   link: {
     textDecoration: 'none',
     color: 'white'
@@ -86,27 +69,7 @@ const Navigation = () => {
       <Divider />
       <List>
         <Typography variant='caption'>
-          <ExpansionPanel>
-            <ExpansionPanelSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls='Catagories'
-            >
-              <CatagoryIcon /> <p>Categories</p>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <ListItem>Science fiction</ListItem>
-              <ListItem>History</ListItem>
-              <ListItem>Mystery</ListItem>
-            </ExpansionPanelDetails>
-            <ListItem>
-              <ListItemText>
-                <ListItemIcon>
-                  <CatagoryIcon />
-                </ListItemIcon>
-                Categories
-              </ListItemText>
-            </ListItem>
-          </ExpansionPanel>
+          <Catagories />
         </Typography>
       </List>
     </div>

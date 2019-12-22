@@ -6,7 +6,7 @@ import FavoriteBookCard from '../FavoriteBookCard';
 
 //material-ui
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   container_grid: {
@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
 const Favorites = ({ firebase }) => {
   const classes = useStyles();
   const [favoriteArr, setFavoriteArr] = useState([]);
+  const [newArr, setNewArr] = useState(false);
   const authUser = useAuthContext();
 
   useEffect(() => {
@@ -33,23 +34,35 @@ const Favorites = ({ firebase }) => {
       .then(doc => {
         if (doc.exists) {
           const docData = doc.data();
-          setFavoriteArr(docData.favArr);
+          console.log(docData);
+          let tempArr = [];
+          for (var key in docData) {
+            if (docData.hasOwnProperty(key)) {
+              tempArr.push(docData[key]);
+            }
+          }
+          setFavoriteArr(tempArr);
         } else {
           console.log('no such document exists');
         }
       })
       .catch(err => console.log(err));
-  }, [firebase.db, authUser.authUser.uid]);
+  }, [firebase.db, authUser.authUser.uid, newArr]);
 
   return (
-    <div className={classes.container_grid}>
-      {favoriteArr.map(favorite => (
-        <FavoriteBookCard
-          className={classes.add_margin}
-          key={favorite}
-          bookData={favorite}
-        />
-      ))}
+    <div>
+      <Grid container spacing={3}>
+        {favoriteArr.map(favorite => (
+          <Grid key={favorite} item xs={12} sm={6} lg={4}>
+            <FavoriteBookCard
+              className={classes.add_margin}
+              bookData={favorite}
+              newArr={newArr}
+              setNewArr={setNewArr}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };

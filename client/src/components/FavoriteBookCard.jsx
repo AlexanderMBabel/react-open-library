@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import _ from 'lodash';
+// import _ from 'lodash';
 import { withFirebase } from './Firebase/context';
 import { useAuthContext } from './Sessions/context';
 //material-ui
-import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
 
 // import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -52,11 +52,11 @@ const useStyles = makeStyles(theme => ({
 
 const urlFirst = 'https://openlibrary.org/api/books?bibkeys=ISBN:';
 const urlLast = '&jscmd=data&format=json';
-const BookCard = ({ bookData, firebase }) => {
+const BookCard = ({ bookData, firebase, setNewArr, newArr }) => {
   const classes = useStyles();
   const [book, setBook] = useState({});
   const [anchorEl, setAnchorEl] = useState(null);
-  const [arrAdded, setArrAdded] = useState(false);
+
   const authUser = useAuthContext();
 
   useEffect(() => {
@@ -64,26 +64,32 @@ const BookCard = ({ bookData, firebase }) => {
       setBook(result.data);
     });
     return () => {};
-  }, []);
+  }, [bookData]);
 
   const objData = book[`ISBN:${bookData}`];
 
   const bookDataProcessed = {
-    title: objData && objData.title,
-    author:
-      objData && objData.authors
+    title: objData ? objData.title : '',
+    author: objData
+      ? objData.authors
         ? objData.authors[0].name
-        : 'author not listed',
-    cover: objData && objData.cover.medium,
-    coverTitle: objData && objData.title + 'cover image',
-    contents: objData && objData.table_of_contents,
-    excerpts: objData && objData.excerpts,
-    availability:
-      objData && objData.ebooks
+        : 'author not listed'
+      : '',
+    cover: objData ? objData.cover.medium : 'some',
+    coverTitle: objData ? objData.title + 'cover image' : '',
+    contents: objData ? objData.table_of_contents : '',
+    excerpts: objData ? objData.excerpts : '',
+    availability: objData
+      ? objData.ebooks
         ? objData.ebooks[0].availability
-        : 'availibility no listed',
-    preview: objData && objData.ebooks ? objData.ebooks[0].preview_url : '#',
-    borrow: objData && objData.ebooks ? objData.ebooks[0].borrow_url : '#'
+        : 'availibility no listed'
+      : '',
+    preview: objData
+      ? objData.ebooks
+        ? objData.ebooks[0].preview_url
+        : '#'
+      : '',
+    borrow: objData ? (objData.ebooks ? objData.ebooks[0].borrow_url : '#') : ''
   };
 
   const addComment = () => {};
@@ -99,37 +105,39 @@ const BookCard = ({ bookData, firebase }) => {
     setAnchorEl(null);
     const userId = authUser.authUser.uid;
     if (userId !== null) {
-      let favArr = [];
-      let removedArr = [];
-
-      // ***get user favorite array***
       firebase.db
         .collection('favorites')
         .doc(userId)
-        .get()
-        .then(doc => {
-          if (doc.exists) {
-            const favData = doc.data();
-            favArr = favData.favArr;
-
-            //  ***remove books ibsn to fav array***
-            _.remove(favArr, n => n === bookData);
-
-            //  ***Post to firebase***
-            firebase.db
-              .collection('favorites')
-              .doc(userId)
-              .set({ favArr })
-              .then(() => {
-                setArrAdded(true);
-                console.log(arrAdded);
-              })
-              .catch(err => console.log(err));
-          } else {
-            console.log('no favorites');
-          }
+        .update({
+          [bookData]: firebase.delete()
         })
+        .then(result => setNewArr(!newArr))
         .catch(err => console.log(err));
+
+      // ***get user favorite array***
+      // firebase.db
+      //   .collection('favorites')
+      //   .doc(userId)
+      //   .get()
+      //   .then(doc => {
+      //     if (doc.exists) {
+      //       const favData = doc.data();
+      //       favArr = favData.favArr;
+
+      //       //  ***remove books ibsn to fav array***
+      //       _.remove(favArr, n => n === bookData);
+
+      //       //  ***Post to firebase***
+      //       firebase.db
+      //         .collection('favorites')
+      //         .doc(userId)
+      //         .set({ favArr })
+      //         .then(() => {
+      //           setNewArr(favArr);
+      //         })
+      //         .catch(err => console.log(err));
+      //     } else {
+      //       console.log('no favorites');
     }
   };
   return (
