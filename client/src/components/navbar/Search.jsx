@@ -63,12 +63,8 @@ const Search = () => {
 
   return (
     <div>
-      <Typography
-        variant='subtitle1'
-        component='h5'
-        style={{ textAlign: 'center' }}
-      >
-        Search Books
+      <Typography style={{ textAlign: 'center' }} variant='h6'>
+        Open Library Browser
       </Typography>
       <div className={classes.search}>
         <div className={classes.searchIcon}>

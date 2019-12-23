@@ -26,7 +26,9 @@ import './App.css';
 function App({ firebase }) {
   const [searchData, setSearchData] = useState({ type: '', value: '' });
   const [catagoryData, setCatagoryData] = useState('');
+
   const [authUser, setAuthUser] = useState(null);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     firebase.auth.onAuthStateChanged(authUser => {
@@ -34,35 +36,57 @@ function App({ firebase }) {
     });
   }, [firebase.auth]);
 
+  // useEffect(() => {
+  //   if (catagoryData !== '') {
+  //     axios
+  //       .get(urlBase + catagoryData + '.json')
+  //       .then(results => {
+  //         setCatagorySearchData(results.data);
+  //         console.log(catagorySearchData);
+  //       })
+  //       .catch(err => console.log(err));
+  //   }
+  // }, [catagoryData]);
+
   let searchDataObj = {
     searchData,
     setSearchData
   };
   let catagoryDataObj = {
     catagoryData,
-    setCatagoryData
+    setCatagoryData,
+
+    books,
+    setBooks
   };
   return (
     <UserContext.Provider value={authUser}>
       <Router history={history}>
         <div className='App'>
-          <SearchProvider value={searchDataObj}>
-            <Navigation />
-          </SearchProvider>
+          <CatagoryContext.Provider value={catagoryDataObj}>
+            <SearchProvider value={searchDataObj}>
+              <Navigation />
+            </SearchProvider>
+          </CatagoryContext.Provider>
           <main>
             <Switch>
-              <Route path='/login' component={Login} />
-              <Route path='/register' component={Register} />
-              <PrivateRoute path='/dashboard' component={Dashboard} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/register' component={Register} />
+
+              <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <Route exact path='/' component={ShowTopbooks} />
               {/* <Route exact path='/showbook' component={ShowBook} /> */}
-              <Route path='/showbook/:isbn' component={ShowBook} />
+              <Route exact path='/showbook/:isbn' component={ShowBook} />
+              <CatagoryContext.Provider value={catagoryDataObj}>
+                <Route
+                  exact
+                  path='/booksByCatagory'
+                  component={BooksByCatagory}
+                />
+              </CatagoryContext.Provider>
               <SearchProvider value={searchDataObj}>
                 <Route exact path='/searchresults' component={SearchBooks} />
               </SearchProvider>
-              <CatagoryContext.Provider value={catagoryDataObj}>
-                <Route path='booksByCatagory' component={BooksByCatagory} />
-              </CatagoryContext.Provider>
             </Switch>
           </main>
         </div>

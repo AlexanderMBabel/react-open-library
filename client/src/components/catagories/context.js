@@ -2,6 +2,9 @@ import {
     createContext
 } from 'react'
 
-const catagoryContext = createContext(null)
+const CatagoryContext = createContext({})
 
-export default catagoryContext
+export const CatagoryProvider = CatagoryContext.Provider
+export const CatagoryConsumer = CatagoryContext.Consumer
+
+export default CatagoryContext

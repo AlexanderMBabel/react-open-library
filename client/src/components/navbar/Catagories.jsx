@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import history from '../../history';
+
+// *** context ***
+import CatagoryContext from '../catagories/context';
 
 // *** images ***
 import scifiImage from '../../images/science-fiction.jpg';
@@ -96,11 +100,25 @@ const useStyles = makeStyles(theme => ({
     catagoryIcon: {
       paddingRight: 5,
       marginRight: 5
+    },
+    catagoryButton: {
+      color: 'white',
+      width: '100%',
+      height: '100%'
     }
   }
 }));
 const Catagories = () => {
   const classes = useStyles();
+  const catagoryObj = useContext(CatagoryContext);
+
+  const clickHandler = e => {
+    const catagory = e.currentTarget.name;
+    console.log(catagory);
+    catagoryObj.setCatagoryData(catagory);
+    history.push('/booksByCatagory');
+  };
+
   return (
     <div>
       <ExpansionPanel>
@@ -121,36 +139,63 @@ const Catagories = () => {
               </Typography>
             </Grid>
             <Grid item xs={4} className={classes.mysteryBg}>
-              <div>
-                <Link className={classes.link} to='/mystery'>
-                  <Typography variant='button'>Mystery</Typography>
-                </Link>
+              <div className={classes.link}>
+                <Button
+                  style={{ color: 'white', height: 75 }}
+                  name='mystery'
+                  onClick={clickHandler}
+                  className={classes.catagoryButton}
+                >
+                  Mystery
+                </Button>
               </div>
             </Grid>
             <Grid item xs={6} className={classes.scifiBg}>
-              <Link className={classes.link} to='/scifi'>
-                <Typography variant='button'>SciFi</Typography>
-              </Link>
+              <div className={classes.link}>
+                <Button
+                  name='science_fiction'
+                  onClick={clickHandler}
+                  className={classes.catagoryButton}
+                >
+                  SciFi
+                </Button>
+              </div>
             </Grid>
             <Grid item xs={6} className={classes.fantasyBg}>
-              <Link className={classes.link} to='/fantasy'>
-                <Typography variant='button'>Fantasy</Typography>
-              </Link>
+              <div className={classes.link}>
+                <Button
+                  name='fantasy'
+                  onClick={clickHandler}
+                  className={classes.catagoryButton}
+                >
+                  Fantasy
+                </Button>
+              </div>
             </Grid>
             <Grid item xs={4} className={classes.romanceBg}>
-              <Link className={classes.link} to='/romance'>
-                <Typography variant='button'>Romance</Typography>
-              </Link>
+              <div className={classes.link}>
+                <Button name='romance' onClick={clickHandler}>
+                  Romance
+                </Button>
+              </div>
             </Grid>
             <Grid item xs={4} className={classes.thrillerBg}>
-              <Link className={classes.link} to='/thriller'>
-                <Typography variant='button'>Thriller</Typography>
-              </Link>
+              <div className={classes.link}>
+                <Button name='thriller' onClick={clickHandler}>
+                  Thriller
+                </Button>
+              </div>
             </Grid>
             <Grid item xs={6} className={classes.horrorBg}>
-              <Link className={classes.link} to='/horror'>
-                <Typography variant='button'>Horror</Typography>
-              </Link>
+              <div className={classes.link}>
+                <Button
+                  name='horror'
+                  onClick={clickHandler}
+                  className={classes.catagoryButton}
+                >
+                  Horror
+                </Button>
+              </div>
             </Grid>
           </Grid>
         </ExpansionPanelDetails>
@@ -159,4 +204,4 @@ const Catagories = () => {
   );
 };
 
-export default Catagories;
+export default withRouter(Catagories);
