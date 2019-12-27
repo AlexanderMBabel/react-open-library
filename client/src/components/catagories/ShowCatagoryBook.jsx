@@ -19,7 +19,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 
-import AddFavorite from '../AddFavorite';
+import AddFavorite from '../utils/AddFavorite';
 
 //styles
 const useStyles = makeStyles(theme => ({
@@ -91,7 +91,7 @@ const CatagoryCard = ({ bookData }) => {
         ? objData.ebooks[0].borrow_url
         : '#'
       : '',
-    isbn: objData && objData.classification.isbn_13
+    isbn: objData && objData.identifiers.isbn_13
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { withFirebase } from './Firebase/context';
-import { useAuthContext } from './Sessions/context';
+import { withFirebase } from '../Firebase/context';
+import { useAuthContext } from '../Sessions/context';
 
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';

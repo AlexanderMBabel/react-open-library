@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AddFavorite from './AddFavorite';
+import AddFavorite from './utils/AddFavorite';
 //material-ui
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';

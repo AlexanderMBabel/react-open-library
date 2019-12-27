@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 
 var firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -35,6 +36,10 @@ class Firebase {
   users = () => this.db.ref('users');
 
   delete = () => app.firestore.FieldValue.delete();
+
+  storageRef = () => app.storage().ref();
+  storage = () => app.storage();
+  stateChanged = app.storage.TaskEvent.STATE_CHANGED;
 }
 
 export default Firebase;

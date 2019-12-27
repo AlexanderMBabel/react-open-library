@@ -42,7 +42,7 @@ const LoginBase = ({ firebase }) => {
         history.push('/dashboard');
       })
       .catch(error => {
-        formData({ ...formData, error });
+        setFormData({ ...formData, error });
       });
   };
   return (

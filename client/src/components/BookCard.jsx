@@ -20,7 +20,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import AddFavorite from './AddFavorite';
+import AddFavorite from './utils/AddFavorite';
 
 //styles
 const useStyles = makeStyles(theme => ({
